@@ -1,0 +1,12 @@
+This file contains a listing of Python libraries and functions which involve crypto
+
+[libs]
+crypto
+
+
+[funcs]
+md5
+sha1
+sha256
+sha384
+sha512
