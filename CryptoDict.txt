@@ -2,7 +2,11 @@ This file contains a listing of Python libraries and functions which involve cry
 
 [libs]
 crypto
-
+OpenSSL
+ssl
+hashlib
+oauthlib
+PassLib
 
 [funcs]
 md5
