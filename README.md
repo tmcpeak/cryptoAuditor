@@ -11,7 +11,7 @@ Functions can be listed (one per line) under the [funcs] section.  Entries are c
 
 
 Usage:<br>
-python AuditCrypto.py -l CryptoDict.txt -d <codePath><br><br>
+python AuditCrypto.py -l CryptoDict.txt -d  CodeDirectory<br><br>
 -l optional argument to specify the list of crypto libaries and functions to scan for.  If not specified will use CryptoDict.txt from the current directory.<br>
 -d optional argument to specify the directory of code to scan.  If not specified will use './'<br><br>
 
