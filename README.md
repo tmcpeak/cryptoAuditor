@@ -10,8 +10,8 @@ Libraries names will only be checked in lines which contain "import".<br>
 Functions can be listed (one per line) under the [funcs] section.  Entries are case-insensitive.  Functions are checked in any lines.<br>
 
 
-Usage:
-python AuditCrypto.py -l CryptoDict.txt -d <codePath>
+Usage:<br>
+python AuditCrypto.py -l CryptoDict.txt -d <codePath><br>
    -l optional argument to specify the list of crypto libaries and functions to scan for.  If not specified will
           use CryptoDict.txt from the current directory.<br>
    -d optional argument to specify the directory of code to scan.  If not specified will use './'<br><br>
