@@ -1,4 +1,5 @@
 import os
+from optparse import OptionParser
 
 def getLibsAndFuncsFromFile(listFile):
     '''
@@ -42,16 +43,10 @@ def displayResults(results):
     for result in results:
         print(result)
 
-def main():
-    listFile = 'CryptoDict.txt'
-    checkDir = '/Users/travis_mcpeak/Documents/CPE/glance-master/glance'
-
-    libs, funcs = getLibsAndFuncsFromFile(listFile)
-
-    results = []
-
+def scanDirectory(directory, libs, funcs):
     # go through all files/sub-directories from the root directory
-    for root, dirs, files in os.walk(checkDir):
+    results = []
+    for root, dirs, files in os.walk(directory):
         for file in files:
             # only look at Python code
             if file.endswith('.py'):
@@ -77,6 +72,18 @@ def main():
                                 result = '(' + str(curLine) + ') ' + file + ': ' + line
                                 results.append(result)
                     curLine += 1
+    return results
+
+def main():
+    parser = OptionParser()
+    parser.add_option('-l', '--list', dest='listFile', help='file which contains list of libraries and functions',
+                      default='CryptoDict.txt')
+    parser.add_option('-d', '--directory', dest='checkDir', help='root directory of code to scan',
+                      default='./')
+    (options, args) = parser.parse_args()
+
+    libs, funcs = getLibsAndFuncsFromFile(options.listFile)
+    results = scanDirectory(options.checkDir, libs, funcs)
 
     displayResults(results)
 
