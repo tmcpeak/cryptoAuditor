@@ -37,7 +37,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="789" selection-end="789" vertical-scroll-proportion="0.37072244" vertical-offset="0" max-vertical-offset="1052">
+            <state line="7" column="19" selection-start="187" selection-end="187" vertical-scroll-proportion="0.099809885" vertical-offset="0" max-vertical-offset="1052">
               <folding />
             </state>
           </provider>
@@ -47,15 +47,6 @@
         <entry file="file://$PROJECT_DIR$/cryptoConfig.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state line="18" column="22" selection-start="605" selection-end="787" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CryptoDict.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CryptoDict.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="6" selection-start="85" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
               <folding />
             </state>
           </provider>
@@ -345,20 +336,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CryptoDict.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="6" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CryptoDict.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="6" selection-start="85" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AuditCrypto.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="95" column="0" selection-start="3811" selection-end="3811" vertical-scroll-proportion="0.0" vertical-offset="483" max-vertical-offset="1560">
@@ -377,7 +354,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="789" selection-end="789" vertical-scroll-proportion="0.37072244" vertical-offset="0" max-vertical-offset="1052">
+        <state line="7" column="19" selection-start="187" selection-end="187" vertical-scroll-proportion="0.099809885" vertical-offset="0" max-vertical-offset="1052">
           <folding />
         </state>
       </provider>

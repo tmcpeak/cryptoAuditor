@@ -5,7 +5,7 @@ A simple Python script to find crypto usages in Python source<br>
 
 To use: create a config file with one or more sections<br><br>
 
-Example:<br><br>
+Example config file:<br><br>
 [libs]<br>
 keywords=crypto, OpenSSL, ssl, hashlib, oauthlib, PassLib<br>
 output_file=libs.txt<br>
