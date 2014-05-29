@@ -17,12 +17,14 @@ def scanDirectory(directory, scanItems):
                 curFile = open(os.path.join(root, file), 'r')
                 curLine = 1
 
-                # go through the file line by line
+                # go through the file line by line, and check if it is in each scan item
                 for line in curFile:
                     for item in scanItems:
                         (keywords, outFile, procComments) = scanItems[item]
+                        # remove comments if told to do so
                         scanLine = getCodeFromLine(line, procComments)
                         for keyword in keywords:
+                            # if the keyword matches in the line, add it to the results for this item
                             if keyword.lower() in scanLine.lower():
                                 result = '(' + str(curLine) + ')' + file + ':' + scanLine
                                 if item not in results.keys():

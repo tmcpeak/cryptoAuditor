@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AuditCrypto.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AuditCrypto.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AuditCrypto.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="0" selection-start="3811" selection-end="3811" vertical-scroll-proportion="0.0" vertical-offset="483" max-vertical-offset="1560">
+            <state line="33" column="18" selection-start="1496" selection-end="1496" vertical-scroll-proportion="0.45961002" vertical-offset="0" max-vertical-offset="1590">
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -34,10 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="19" selection-start="187" selection-end="187" vertical-scroll-proportion="0.099809885" vertical-offset="0" max-vertical-offset="1052">
+            <state line="30" column="0" selection-start="805" selection-end="805" vertical-scroll-proportion="-18.0" vertical-offset="0" max-vertical-offset="540">
               <folding />
             </state>
           </provider>
@@ -64,9 +64,9 @@
       <list>
         <option value="$PROJECT_DIR$/CryptoDict.txt" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/AuditCrypto.py" />
         <option value="$PROJECT_DIR$/cryptoConfig.txt" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/AuditCrypto.py" />
       </list>
     </option>
   </component>
@@ -336,15 +336,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AuditCrypto.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="0" selection-start="3811" selection-end="3811" vertical-scroll-proportion="0.0" vertical-offset="483" max-vertical-offset="1560">
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cryptoConfig.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="22" selection-start="605" selection-end="787" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
@@ -354,8 +345,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="19" selection-start="187" selection-end="187" vertical-scroll-proportion="0.099809885" vertical-offset="0" max-vertical-offset="1052">
+        <state line="30" column="0" selection-start="805" selection-end="805" vertical-scroll-proportion="-18.0" vertical-offset="0" max-vertical-offset="540">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AuditCrypto.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="18" selection-start="1496" selection-end="1496" vertical-scroll-proportion="0.45961002" vertical-offset="0" max-vertical-offset="1590">
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
