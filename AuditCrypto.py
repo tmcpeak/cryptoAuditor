@@ -1,51 +1,14 @@
 import os
+import ConfigParser
 from optparse import OptionParser
-
-def getLibsAndFuncsFromFile(listFile):
-    '''
-    gets lists of libraries and functions to check for from a dictionary file
-
-    the dictionary file contains two sections [libs] and [funcs], anything before [libs] is ignored
-     libs will be checked in any line that contains the import keyword
-     functions will be matched anywhere in the source
-
-    function returns two lists: libs and funcs
-    '''
-
-    file = open(listFile, 'r')
-
-    currentlyReading = 'none'
-    libs = []
-    funcs = []
-
-    '''
-    step through each line in the crypto dictionary file,
-        if the line contains [libs] it marks the start of the libs section, read into the libs list until
-        the line contains [funcs], at which point the functions section begins
-        while in the libs or funcs section read the library or function into the appropriate list
-    '''
-    for line in file:
-        if '[libs]' in line:
-            currentlyReading = 'libs'
-        elif '[funcs]' in line:
-            currentlyReading = 'funcs'
-        # empty lines are ignored, whitespace is stripped out
-        elif len(line.strip()) > 0 and currentlyReading == 'libs':
-            libs.append(line.strip())
-        elif len(line.strip()) > 0 and currentlyReading == 'funcs':
-            funcs.append(line.strip())
-
-    file.close()
-
-    return libs, funcs
 
 def displayResults(results):
     for result in results:
         print(result)
 
-def scanDirectory(directory, libs, funcs):
+def scanDirectory(directory, scanItems):
     # go through all files/sub-directories from the root directory
-    results = []
+    results = {}
     for root, dirs, files in os.walk(directory):
         for file in files:
             # only look at Python code
@@ -56,36 +19,80 @@ def scanDirectory(directory, libs, funcs):
 
                 # go through the file line by line
                 for line in curFile:
-                    # if the line has import in it, check it against the libs
-                    if 'import' in line:
-                        for lib in libs:
-                            # ignore case
-                            if lib.lower() in line.lower():
-                                # the result is the line number and file in which the result was found, along with the
-                                # line itself
-                                result = '(' + str(curLine) + ') ' + file + ': ' + line
-                                results.append(result)
-                    # otherwise check it against the functions
-                    else:
-                        for func in funcs:
-                            if func.lower() in line.lower():
-                                result = '(' + str(curLine) + ') ' + file + ': ' + line
-                                results.append(result)
+                    for item in scanItems:
+                        (keywords, outFile, procComments) = scanItems[item]
+                        scanLine = getCodeFromLine(line, procComments)
+                        for keyword in keywords:
+                            if keyword.lower() in scanLine.lower():
+                                result = '(' + str(curLine) + ')' + file + ':' + scanLine
+                                if item not in results.keys():
+                                    results[item] = []
+                                results[item].append(result)
                     curLine += 1
     return results
 
+def parseConfigFile(configFile):
+    config = ConfigParser.ConfigParser()
+    config.read(configFile)
+
+    scanItems = {}
+
+    for section in config.sections():
+        keywords = []
+        outFile = ''
+        procComments = True
+
+        # if section doesn't contain keywords, it doesn't do anything, skip it
+        if config.get(section, 'keywords') is not None:
+            # get all keywords listed in the section, remove any spaces, and convert to a list
+            keywords = config.get(section, 'keywords').replace(' ', '').split(',')
+
+            # set output file to what is listed in the file if it exists, otherwise default to
+            #    section_name.txt
+            if config.has_option(section, 'output_file'):
+                outFile = config.get(section, 'output_file')
+            else:
+                outFile = section + '.txt'
+
+            if not config.has_option(section, 'process_comments'):
+                procComments = True
+            elif config.get(section, 'process_comments') == 'False':
+                procComments = False
+            else:
+                procComments = True
+
+            # each section has the section name, the keywords list, the output file, and whether to process comments
+            scanItems[section]=(keywords, outFile, procComments)
+    return scanItems
+
+def getCodeFromLine(curLine, includeComments):
+    # This function is to remove single line comments from a line of code.  Anything after the '#' is not returned
+    # TODO: Add some support for recognizing multi-line comments
+    if not includeComments and not curLine.find('#') == -1:
+        returnValue = curLine[:curLine.find('#')]
+    else:
+        returnValue = curLine
+    return returnValue
+
+def writeResults(scanItems, results):
+    for key in results.keys():
+        (keywords, outFile, procComments) = scanItems[key]
+        curFile = open(outFile, 'w')
+        for result in results[key]:
+            curFile.write(result)
+        curFile.close()
+
 def main():
     parser = OptionParser()
-    parser.add_option('-l', '--list', dest='listFile', help='file which contains list of libraries and functions',
-                      default='CryptoDict.txt')
+    parser.add_option('-c', '--conf', dest='configFile', help='file which contains config of what to look for',
+                      default='cryptoConfig.txt')
     parser.add_option('-d', '--directory', dest='checkDir', help='root directory of code to scan',
                       default='./')
     (options, args) = parser.parse_args()
 
-    libs, funcs = getLibsAndFuncsFromFile(options.listFile)
-    results = scanDirectory(options.checkDir, libs, funcs)
-
-    displayResults(results)
+    scanItems = parseConfigFile(options.configFile)
+    results = scanDirectory(options.checkDir, scanItems)
+    writeResults(scanItems, results)
 
 if __name__ == "__main__":
     main()

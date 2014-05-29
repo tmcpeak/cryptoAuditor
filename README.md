@@ -3,23 +3,27 @@ cryptoAuditor<br>
 
 A simple Python script to find crypto usages in Python source<br>
 
+To use: create a config file with one or more sections<br><br>
 
-Put the names of crypto libraries (one per line) under the [libs] section.  Entries are case-insensitive.
-Libraries names will only be checked in lines which contain "import".<br>
+Example:<br><br>
+[libs]<br>
+keywords=crypto, OpenSSL, ssl, hashlib, oauthlib, PassLib<br>
+output_file=libs.txt<br>
+process_comments=True<br><br>
 
-Functions can be listed (one per line) under the [funcs] section.  Entries are case-insensitive.  Functions are checked in any lines.<br>
-
-
-Usage:<br>
-python AuditCrypto.py -l CryptoDict.txt -d  CodeDirectory<br><br>
--l optional argument to specify the list of crypto libaries and functions to scan for.  If not specified will use CryptoDict.txt from the current directory.<br>
--d optional argument to specify the directory of code to scan.  If not specified will use './'<br><br>
-
+[funcs]<br>
+keywords=md5, sha1, sha256, sha384, sha512<br>
+process_comments=False<br><br>
 
 TODO:<br>
   1) Build the dictionary file with more crypto libraries and functions<br>
-  2) Better output of the results (file: HTML?)<br>
-  3) Exception handling when dictionary file or code directory do not exist<br>
+  2) Exception handling when there is a problem with the output files<br>
+  3) Handle multi-line comments<br>
+  4) Possibly build functionality for using regex<br><br><br>
+
+Example usage:<br>
+python AuditCrypto.py -c cryptoConfig.txt<br>
+python AuditCrypto.py -c cryptoConfig.txt -d ./codeBase<br>
 
 
 

@@ -1,0 +1,19 @@
+# each section enclosed in [] defines a set of keywords you are looking for
+# each section should have one or more keywords defined after keywords=
+# more than one keyword can be included, separate each with commas
+#
+# output_file defines where the results of any instances of these keywords are
+# written.  If output_file is not provided, the default of section_name.txt will
+# be used, where section_name is the value surrounded in [].
+
+# If set to true or not provided, process_comments will include results for the
+# keywords included in Python comments.  If set to false, these results are ignored.
+
+[libs]
+keywords=crypto, OpenSSL, ssl, hashlib, oauthlib, PassLib
+output_file=libs.txt
+process_comments=True
+
+[funcs]
+keywords=md5, sha1, sha256, sha384, sha512
+process_comments=False
