@@ -23,13 +23,22 @@ def scanDirectory(directory, scanItems):
                         (keywords, outFile, procComments) = scanItems[item]
                         # remove comments if told to do so
                         scanLine = getCodeFromLine(line, procComments)
-                        for keyword in keywords:
-                            # if the keyword matches in the line, add it to the results for this item
-                            if keyword.lower() in scanLine.lower():
-                                result = '(' + str(curLine) + ')' + file + ':' + scanLine
-                                if item not in results.keys():
-                                    results[item] = []
-                                results[item].append(result)
+                        foundKeyword=False
+                        if item == 'libs':
+                            # for libs, only check lines with import in them
+                            for keyword in keywords:
+                                if keyword.lower() in scanLine.lower() and 'import' in scanLine.lower():
+                                    foundKeyword=True
+                        else:
+                            for keyword in keywords:
+                                # if the keyword matches in the line, add it to the results for this item
+                                if keyword.lower() in scanLine.lower():
+                                    foundKeyword=True
+                        if foundKeyword:
+                            result = '(' + str(curLine) + ')' + file + ':' + scanLine
+                            if item not in results.keys():
+                                results[item] = []
+                            results[item].append(result)
                     curLine += 1
     return results
 

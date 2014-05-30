@@ -1,0 +1,89 @@
+(201)cache.py:        response.headers['Content-MD5'] = image.checksum
+(243)cache.py:        image_checksum = resp.headers.get('Content-MD5')
+(43)gzip.py:            checksum = response.headers.get("Content-MD5")
+(61)gzip.py:                response.headers['Content-MD5'] = checksum
+(288)images.py:            * checksum -- MD5 checksum of the image data
+(189)image_data.py:            response.headers['Content-MD5'] = image.checksum
+(676)images.py:            'description': _('md5 hash of image contents. (READ-ONLY)'),
+(532)utils.py:        digest = "sha1"
+(241)__init__.py:            current_checksum = hashlib.md5()
+(428)filesystem.py:        checksum = hashlib.md5()
+(196)gridfs.py:        LOG.debug(_("Uploaded image %(id)s, md5 %(md5)s, length %(length)s "
+(198)gridfs.py:                                    'md5': image.md5,
+(201)gridfs.py:        return (loc.get_uri(), image.length, image.md5, {})
+(318)rbd.py:        checksum = hashlib.md5()
+(399)s3.py:        checksum = hashlib.md5()
+(279)sheepdog.py:        checksum = hashlib.md5()
+(415)swift.py:                checksum = hashlib.md5()
+(449)swift.py:                             "to Swift returning MD5 of content: "
+(477)swift.py:                headers = {'ETag': hashlib.md5("").hexdigest(),
+(263)vmware_datastore.py:        checksum = hashlib.md5()
+(66)test_bin_glance_cache_manage.py:                         hashlib.md5(image_data).hexdigest())
+(67)test_cache_middleware.py:                         hashlib.md5(image_data).hexdigest())
+(239)test_cache_middleware.py:                         hashlib.md5(image_data).hexdigest())
+(364)test_cache_middleware.py:                         hashlib.md5(image_data).hexdigest())
+(308)test_swift.py:        image_checksum = hashlib.md5(image_data)
+(331)test_swift.py:                         hashlib.md5(received_data).hexdigest())
+(346)test_swift.py:        image_checksum = hashlib.md5(image_data)
+(373)test_swift.py:                         hashlib.md5(received_data).hexdigest())
+(388)test_swift.py:        image_checksum = hashlib.md5(image_data)
+(415)test_swift.py:                         hashlib.md5(received_data).hexdigest())
+(143)test_api.py:                         hashlib.md5(image_data).hexdigest())
+(193)test_api.py:        self.assertEqual(hashlib.md5(content).hexdigest(),
+(194)test_api.py:                         hashlib.md5("*" * FIVE_KB).hexdigest())
+(406)test_api.py:                         hashlib.md5(image_data).hexdigest())
+(112)test_copy_to_file.py:        self.assertEqual(hashlib.md5(content).hexdigest(),
+(113)test_copy_to_file.py:                         hashlib.md5("*" * FIVE_KB).hexdigest())
+(134)test_copy_to_file.py:        self.assertEqual(hashlib.md5(content).hexdigest(),
+(135)test_copy_to_file.py:                         hashlib.md5("*" * FIVE_KB).hexdigest())
+(210)test_copy_to_file.py:            self.assertEqual(hashlib.md5(content).hexdigest(),
+(211)test_copy_to_file.py:                             hashlib.md5("*" * FIVE_KB).hexdigest())
+(64)test_misc.py:                         hashlib.md5(image_data).hexdigest())
+(161)test_ssl.py:                         hashlib.md5(image_data).hexdigest())
+(213)test_ssl.py:        self.assertEqual(hashlib.md5(content).hexdigest(),
+(214)test_ssl.py:                         hashlib.md5("*" * FIVE_KB).hexdigest())
+(430)test_ssl.py:                         hashlib.md5(image_data).hexdigest())
+(453)test_ssl.py:                         hashlib.md5(image_data).hexdigest())
+(371)test_images.py:        self.assertEqual(expected_checksum, response.headers['Content-MD5'])
+(56)test_v1_api.py:                         hashlib.md5(image_data).hexdigest())
+(102)test_v1_api.py:        self.assertEqual(hashlib.md5(content).hexdigest(),
+(103)test_v1_api.py:                         hashlib.md5("*" * FIVE_KB).hexdigest())
+(299)test_v1_api.py:                         hashlib.md5(image_data).hexdigest())
+(319)test_v1_api.py:                         hashlib.md5(image_data).hexdigest())
+(112)test_cache_middleware.py:            "Content-MD5": "abcdefghi"
+(310)test_cache_middleware.py:        self.assertEqual(response.headers['Content-MD5'],
+(198)test_filesystem_store.py:        expected_checksum = hashlib.md5(expected_file_contents).hexdigest()
+(239)test_filesystem_store.py:        expected_checksum = hashlib.md5(expected_file_contents).hexdigest()
+(401)test_image_cache.py:        md5 = hashlib.md5()
+(402)test_image_cache.py:        md5.update(image)
+(403)test_image_cache.py:        checksum = md5.hexdigest()
+(420)test_image_cache.py:            md5 = hashlib.md5()
+(421)test_image_cache.py:            md5.update(FIXTURE_DATA)
+(422)test_image_cache.py:            checksum = md5.hexdigest()
+(439)test_image_cache.py:            md5 = hashlib.md5()
+(440)test_image_cache.py:            md5.update(FIXTURE_DATA)
+(441)test_image_cache.py:            checksum = md5.hexdigest()
+(74)test_s3_store.py:        def compute_md5(self, data):
+(76)test_s3_store.py:            checksum = hashlib.md5()
+(234)test_s3_store.py:        expected_checksum = hashlib.md5(expected_s3_contents).hexdigest()
+(280)test_s3_store.py:            expected_checksum = hashlib.md5(expected_s3_contents).hexdigest()
+(820)test_store_image.py:        self.checksum = "md5"
+(105)test_swift_store.py:                checksum = hashlib.md5()
+(113)test_swift_store.py:                etag = hashlib.md5(fixture_object.getvalue()).hexdigest()
+(320)test_swift_store.py:        expected_checksum = hashlib.md5(expected_swift_contents).hexdigest()
+(380)test_swift_store.py:                hashlib.md5(expected_swift_contents).hexdigest()
+(439)test_swift_store.py:        expected_checksum = hashlib.md5(expected_swift_contents).hexdigest()
+(478)test_swift_store.py:        expected_checksum = hashlib.md5(expected_swift_contents).hexdigest()
+(531)test_swift_store.py:        expected_checksum = hashlib.md5(expected_swift_contents).hexdigest()
+(1004)test_swift_store.py:        checksum = hashlib.md5()
+(170)test_vmware_store.py:        hash_code = hashlib.md5(expected_contents)
+(173)test_vmware_store.py:        with mock.patch('hashlib.md5') as md5:
+(174)test_vmware_store.py:            md5.return_value = hash_code
+(200)test_vmware_store.py:        hash_code = hashlib.md5(expected_contents)
+(203)test_vmware_store.py:        with mock.patch('hashlib.md5') as md5:
+(204)test_vmware_store.py:            md5.return_value = hash_code
+(2140)test_api.py:        image_checksum = hashlib.md5(image_contents).hexdigest()
+(2164)test_api.py:        image_checksum = hashlib.md5(image_contents).hexdigest()
+(2196)test_api.py:        bad_checksum = hashlib.md5("invalid").hexdigest()
+(393)test_image_data_resource.py:        self.assertNotIn('Content-MD5', response.headers)
+(407)test_image_data_resource.py:        self.assertEqual(checksum, response.headers['Content-MD5'])

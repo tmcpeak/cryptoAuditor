@@ -15,6 +15,9 @@ process_comments=True<br><br>
 keywords=md5, sha1, sha256, sha384, sha512<br>
 process_comments=False<br><br>
 
+Note: [libs] is a special section.  Keywords listed in [libs] are only matched if they are in a line with 'import'
+<br><br>
+
 TODO:<br>
   1) Build the dictionary file with more crypto libraries and functions<br>
   2) Exception handling when there is a problem with the output files<br>
